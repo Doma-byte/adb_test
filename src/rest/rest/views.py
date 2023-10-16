@@ -10,8 +10,7 @@ from pymongo.errors import ConnectionFailure
 
 try:
     # mongo_uri = 'mongodb://' + os.environ["MONGO_HOST"] + ':' + os.environ["MONGO_PORT"]
-    # db = MongoClient("mongodb+srv://" + os.environ["CLUSTER_STRING"])['test_db']
-    db = MongoClient("mongodb+srv://harshk7134:Harsh%40123@cluster0.uxt0o0d.mongodb.net/bag")['test_db']
+    db = MongoClient("mongodb+srv://" + os.environ["CLUSTER_STRING"])['test_db']
     # db = MongoClient(mongo_uri)['test_db']
     collection_name = db['adbrew_test']
 except ConnectionFailure as e:
