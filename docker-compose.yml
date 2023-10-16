@@ -15,7 +15,10 @@ services:
   app:
     build: .
     container_name: app
+    tty: true
+    stdin_open: true # without this node doesn't start
     command: bash -c "cd /src/app && yarn install && yarn start"
+    # command: bash -c "cd /src/app && npm install && npm start"
     ports:
       - "3000:3000"
     volumes:
@@ -29,6 +32,4 @@ services:
       - "27017:27017"
     volumes:
       - ${ADBREW_CODEBASE_PATH}/db/:/data/db
-    command: /usr/bin/mongod --bind_ip 0.0.0.0
-
-    
+    command:  bash -c "mongod --bind_ip 0.0.0.0"
