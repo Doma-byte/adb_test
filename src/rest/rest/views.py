@@ -10,6 +10,7 @@ class TodoListView(APIView):
     def __init__(self, db_uri='mongodb://' + os.environ["MONGO_HOST"] + ':' + os.environ["MONGO_PORT"]):
         super().__init__()
         self.db_manager = DatabaseManager(db_uri)
+        self.db_manager.connect()
 
     def get(self, request):
         collection_name = self.db_manager.get_collection()
